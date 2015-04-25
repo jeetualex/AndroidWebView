@@ -68,7 +68,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        webview.loadUrl("http://www.google.com");
+        webview.loadUrl("http://music.jeetualex.info");
     }
 
 
