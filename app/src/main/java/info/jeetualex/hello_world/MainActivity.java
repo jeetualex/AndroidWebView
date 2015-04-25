@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -21,16 +23,17 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
-        Button button = (Button) findViewById(R.id.hello);
-
         WebView webview = (WebView) findViewById(R.id.webView);
-        //myWebView.loadUrl("http://jeetu.info/");
 
         WebSettings settings = webview.getSettings();
+
         settings.setJavaScriptEnabled(true);
+
         webview.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
 
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
@@ -45,7 +48,7 @@ public class MainActivity extends ActionBarActivity {
             }
 
             public void onPageFinished(WebView view, String url) {
-                Log.i("INFO", "Finished loading URL: " +url);
+                Log.i("INFO", "Finished loading URL: " + url);
                 if (progressBar.isShowing()) {
                     progressBar.dismiss();
                 }
@@ -64,16 +67,8 @@ public class MainActivity extends ActionBarActivity {
                 alertDialog.show();
             }
         });
-        webview.loadUrl("http://about.jeetualex.info");
 
-
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
-            }
-        });
+        webview.loadUrl("http://www.google.com");
     }
 
 
